@@ -13,12 +13,15 @@ endif
 " Set the tabstops
 :set tabstop=2
 :set shiftwidth=2
+:set softtabstop=2
 
 " Show line numbers
 :set number
 :set relativenumber
 " :set norelativenumber
 
+:filetype on
+:syntax on
 " ************************************************************************ 
 " plug Ins Settings
 "
