@@ -1,0 +1,117 @@
+font:
+  # The normal (roman) font face to use.
+  normal:
+    # family: Droid Sans Mono Slashed for Powerline
+    # Style can be specified to pick a specific face.
+    family: SourceCodePro 
+    style: Regular
+
+  # The bold font face
+  bold:
+    family: SourceCodePro 
+    # Style can be specified to pick a specific face.
+    style: Bold
+
+  # The italic font face
+  italic:
+    family: SourceCodePro 
+    # Style can be specified to pick a specific face.
+    style: Italic
+
+  size: 9.0
+
+schemes:
+  # iTerm 2 default theme
+  iterm: &iterm
+    # Default colors
+    primary:
+      background: '#101421'
+      foreground: '#fffbf6'
+
+     # Normal colors
+    normal:
+      black:   '#2e2e2e'
+      red:     '#eb4129'
+      green:   '#abe047'
+      yellow:  '#f6c744'
+      blue:    '#47a0f3'
+      magenta: '#7b5cb0'
+      cyan:    '#64dbed'
+      white:   '#e5e9f0'
+
+     # Bright colors
+    bright:
+      black:   '#565656'
+      red:     '#ec5357'
+      green:   '#c0e17d'
+      yellow:  '#f9da6a'
+      blue:    '#49a4f8'
+      magenta: '#a47de9'
+      cyan:    '#99faf2'
+      white:   '#ffffff'
+  
+  # Monokai Pro
+  monokai_pro: &monokaipro
+    # Default colors
+    primary:
+      background: '#2D2A2E'
+      foreground: '#FCFCFA'
+
+    # Normal colors
+    normal:
+      black:   '#403E41'
+      red:     '#FF6188'
+      green:   '#A9DC76'
+      yellow:  '#FFD866'
+      blue:    '#FC9867'
+      magenta: '#AB9DF2'
+      cyan:    '#78DCE8'
+      white:   '#FCFCFA'
+
+    # Bright colors
+    bright:
+      black:   '#727072'
+      red:     '#FF6188'
+      green:   '#A9DC76'
+      yellow:  '#FFD866'
+      blue:    '#FC9867'
+      magenta: '#AB9DF2'
+      cyan:    '#78DCE8'
+      white:   '#FCFCFA'
+
+  # Solarized Dark
+  solarized_dark: &solarized_dark
+    # Default colors
+    primary:
+      background: '#002b36' # base03
+      foreground: '#839496' # base0
+
+    # Cursor colors
+    cursor:
+      text:   '#002b36' # base03
+      cursor: '#839496' # base0
+
+    # Normal colors
+    normal:
+      black:   '#073642' # base02
+      red:     '#dc322f' # red
+      green:   '#859900' # green
+      yellow:  '#b58900' # yellow
+      blue:    '#268bd2' # blue
+      magenta: '#d33682' # magenta
+      cyan:    '#2aa198' # cyan
+      white:   '#eee8d5' # base2
+
+    # Bright colors
+    bright:
+      black:   '#586e75' # base01
+      red:     '#cb4b16' # orange
+      green:   '#586e75' # base01
+      yellow:  '#657b83' # base00
+      blue:    '#839496' # base0
+      magenta: '#6c71c4' # violet
+      cyan:    '#93a1a1' # base1
+      white:   '#fdf6e3' # base3
+
+colors: *solarized_dark
+
