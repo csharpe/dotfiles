@@ -2,7 +2,7 @@
 # ~/.bashrc
 #
 # If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+# [[ $- != *i* ]] && return
 
 # ########################################################################
 # Set environment variables
@@ -103,4 +103,9 @@ alias dotfiles="/usr/bin/git --git-dir $DOTFILES_REPO --work-tree ~/ "
 #if [ -f ~/.bash_aliases ]; then
 #    . ~/.bash_aliases
 #fi
+
+# ########################################################################
+# Enivronmental definitions.
+# ########################################################################
+declare -x EDITOR="/usr/bin/vim"
 
