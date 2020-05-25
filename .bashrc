@@ -73,6 +73,8 @@ elif [[ $(uname) == 'Darwin' ]] && [[ $TERM == *'color'* ]]; then
 	# command option for color output than Linux
 	alias ls='ls -G'
 	export CLICOLOR=1
+
+	# Use more pleasant colors from ls than the defaults
 	export LSCOLORS='ExfxcxdxCxegedabagacad'
 fi
 
