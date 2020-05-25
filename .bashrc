@@ -72,6 +72,8 @@ elif [[ $(uname) == 'Darwin' ]] && [[ $TERM == *'color'* ]]; then
 	# dir and vdir do not exist in OSX, OSX also use a different
 	# command option for color output than Linux
 	alias ls='ls -G'
+	export CLICOLOR=1
+	export LSCOLORS='ExfxcxdxCxegedabagacad'
 fi
 
 alias grep='grep --color=auto'
@@ -109,7 +111,23 @@ alias dotfiles="/usr/bin/git --git-dir $DOTFILES_REPO --work-tree ~/ "
 #fi
 
 # ########################################################################
+# Google Cloud components
+# ########################################################################
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "${HOME}/bin/google-cloud-sdk/path.bash.inc" ]; then . "${HOME}/bin/google-cloud-sdk/path.bash.inc" ; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "${HOME}/bin/google-cloud-sdk/completion.bash.inc" ]; then . "${HOME}/bin/google-cloud-sdk/completion.bash.inc"; fi
+
+# ########################################################################
+# iTERM (OSX Terminal) integration
+# ########################################################################
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+# ########################################################################
 # Enivronmental definitions.
 # ########################################################################
+
 declare -x EDITOR="/usr/bin/vim"
 
