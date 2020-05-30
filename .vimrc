@@ -22,6 +22,15 @@ endif
 
 :filetype on
 :syntax on
+
+" ************************************************************************ 
+" Enable Powerline - Installed via PIP
+"
+:python3 from powerline.vim import setup as powerline_setup
+:python3 powerline_setup()
+:python3 del powerline_setup
+:set laststatus=2
+
 " ************************************************************************ 
 " plug Ins Settings
 "
@@ -42,5 +51,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'https://github.com/hashivim/vim-terraform.git'
 Plug 'https://github.com/chiel92/vim-autoformat'
+" Plug 'https://github.com/powerline/powerline'
 
 call plug#end()
