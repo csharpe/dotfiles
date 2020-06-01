@@ -20,7 +20,6 @@ autoload promptinit && promptinit
 # bindkey '^xe' edit-command-line
 # bindkey '^x^e' edit-command-line
 
-bindkey -v
 
 # ########################################################################
 # Aliases	
@@ -41,13 +40,14 @@ alias dotfiles="/usr/bin/git --git-dir $DOTFILES_REPO --work-tree ~/ "
 # https://github.com/ohmyzsh/ohmyzsh
 # ########################################################################
 declare -x ZSH="/usr/share/oh-my-zsh/"
-declare -x ZSH_THEME="pygmalion"
+declare -x ZSH_THEME="spaceship"
 
 plugins=(
   git 
 	colored-man-pages 
 	colorize
-	zsh-syntax-highlighting
+	zsh-syntax-highlighting 
+	vi-mode
 )
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
@@ -59,4 +59,4 @@ source $ZSH/oh-my-zsh.sh
 # ########################################################################
 # Scripts to complete setup 
 # ########################################################################
-
+bindkey -v
