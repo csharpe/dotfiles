@@ -39,7 +39,7 @@ alias dotfiles="/usr/bin/git --git-dir $DOTFILES_REPO --work-tree ~/ "
 # Oh-My-Zsh config
 # https://github.com/ohmyzsh/ohmyzsh
 # ########################################################################
-declare -x ZSH="/usr/share/oh-my-zsh/"
+declare -x ZSH="${HOME}/.oh-my-zsh"
 declare -x ZSH_THEME="spaceship"
 
 plugins=(
@@ -50,11 +50,11 @@ plugins=(
 	vi-mode
 )
 
-ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
-if [[ ! -d $ZSH_CACHE_DIR ]]; then
-  mkdir $ZSH_CACHE_DIR
+ZSH_CACHE_DIR=${HOME}/.cache/oh-my-zsh
+if [[ ! -d ${ZSH_CACHE_DIR} ]]; then
+  mkdir ${ZSH_CACHE_DIR}
 fi
-source $ZSH/oh-my-zsh.sh
+source ${ZSH}/oh-my-zsh.sh
 
 # ########################################################################
 # Scripts to complete setup 
