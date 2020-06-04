@@ -1,29 +1,47 @@
-#!/bin/bash
-YELLOW='\e[1;33m'
-RED='\e[1;31m'
-GREEN='\e[1;32m'
-NC='\033[0m'
-ZSH_CUSTOM="${HOME}/.oh-my-zsh"
+#!/usr/bin/env bash
 
-if [[ -e /usr/bin/pacman ]]; then
-	# Archlinux based distro
-	UPDATE_CMD="sudo pacman -Sy "
-	INSTALL_CMD="sudo pacman -S --noconfirm  -- "
-	ZSH_SYNTAX_INSTALL_LOC="/usr/share/zsh/plugins/zsh-syntax-highlighting"
-elif [[ -e /usr/bin/apt ]]; then
-	# Debian based distro
-	UPDATE_CMD="sudo apt update"
-	INSTALL_CMD="sudo apt install -y -- "
-	ZSH_SYNTAX_INSTALL_LOC="/usr/share/zsh-syntax-highlighting"
-elif [[ -e /usr/bin/brew ]]; then
-	# OSX
-	UPDATE_CMD="brew update ";
-	INSTALL_CMD="brew install -- ";
-	ZSH_SYNTAX_INSTALL_LOC="/usr/share/zsh-syntax-highlighting ";
+YELLOW="\e[1;33m"
+RED="\e[1;31m"
+GREEN="\e[1;32m"
+NC="\e[m"
+ZSH_CUSTOM="${HOME}/.oh-my-zsh"
+OS=$(uname);
+
+if [[ $OS == "Linux" ]]; then
+	echo -e "${GREEN}Installing dependencies for Linux${NC}";
+	echo -e;	
+	if [[ -e /usr/bin/pacman ]]; then
+		# Archlinux based distro
+		UPDATE_CMD="sudo pacman -Sy "
+		INSTALL_CMD="sudo pacman -S --noconfirm  -- "
+		ZSH_SYNTAX_INSTALL_LOC="/usr/share/zsh/plugins/zsh-syntax-highlighting"
+	elif [[ -e /usr/bin/apt ]]; then
+		# Debian based distro
+		UPDATE_CMD="sudo apt update"
+		INSTALL_CMD="sudo apt install -y -- "
+		ZSH_SYNTAX_INSTALL_LOC="/usr/share/zsh-syntax-highlighting"
+	else
+		echo -e "${RED}Unsupported or unknown package manager${NC}";
+		echo -e "${YELLOW}Installation of dependencies and dotfiles aborted${NC}";
+		exit 1;
+	fi;
+elif [[ $OS == "Darwin" ]]; then	
+	echo -e "${GREEN}Installing dependencies for OSX${NC}";
+	echo -e
+	if [[ -e /usr/local/bin/brew ]]; then
+		# OSX
+		UPDATE_CMD="brew update ";
+		INSTALL_CMD="brew install -- ";
+		ZSH_SYNTAX_INSTALL_LOC="/usr/local/share/zsh-syntax-highlighting ";
+	else
+		echo -e "${RED}Unsupported or unknown package manager${NC}";
+		echo -e "${YELLOW}Installation of dependencies and dotfiles aborted${NC}";
+		exit 1;
+	fi;
 else
-	echo -e "${RED}Unsupported or unknown package manager${NC}";
-	echo -e "${YELLOW}Installation of dependencies and dotfiles aborted${NC}";
-	exit 1;
+		echo -e "${RED}Unsupported or unknown operating system${NC}";
+		echo -e "${YELLOW}Installation of dependencies and dotfiles aborted${NC}";
+		exit 1;
 fi;
 
 # ########################################################################
