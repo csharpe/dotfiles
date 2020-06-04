@@ -59,4 +59,7 @@ source ${ZSH}/oh-my-zsh.sh
 # ########################################################################
 # Scripts to complete setup 
 # ########################################################################
-bindkey -v
+export MANPATH="/usr/local/man:$MANPATH";
+export EDITOR="vim";
+
+bindkey -v;
