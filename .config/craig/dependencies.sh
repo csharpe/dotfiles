@@ -13,13 +13,13 @@ if [[ -e /usr/bin/pacman ]]; then
 elif [[ -e /usr/bin/apt ]]; then
 	# Debian based distro
 	UPDATE_CMD="sudo apt update"
-	INSTALL_CMD="sudo apt install -y --"
+	INSTALL_CMD="sudo apt install -y -- "
 	ZSH_SYNTAX_INSTALL_LOC="/usr/share/zsh-syntax-highlighting"
 elif [[ -e /usr/bin/brew ]]; then
 	# OSX
-	UPDATE_CMD="brew update";
-	INSTALL_CMD="brew install -y --";
-	ZSH_SYNTAX_INSTALL_LOC="/usr/share/zsh-syntax-highlighting";
+	UPDATE_CMD="brew update ";
+	INSTALL_CMD="brew install -- ";
+	ZSH_SYNTAX_INSTALL_LOC="/usr/share/zsh-syntax-highlighting ";
 else
 	echo -e "${RED}Unsupported or unknown package manager${NC}";
 	echo -e "${YELLOW}Installation of dependencies and dotfiles aborted${NC}";
@@ -115,7 +115,7 @@ else
 	git clone --bare https://github.com/csharpe/dotfiles ${HOME}/dotfiles.git;
 fi;
 
-# git --work-tree ${HOME} --git-dir ${HOME}/dotfiles.git checkout --force
+git --work-tree ${HOME} --git-dir ${HOME}/dotfiles.git checkout --force
 
 echo -e "${GREEN}Installation of dependencies and dotfiles complete${NC}";
 
