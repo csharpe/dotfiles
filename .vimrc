@@ -1,9 +1,13 @@
 " Set the font size
+
 if has("gui_running")
-  " Gvim
-  if has("gui_gtk2") || has("gui_gtk3")
+	" Gvim
+	let s:uname = system("uname")
+  if s:uname == "Darwin\n"
+		:set guifont=SourceCodeProForPowerline-Regular:h16
+	elseif has("gui_gtk2") || has("gui_gtk3")
     " Linux GUI
-	:set guifont=Source\ Code\ Pro\ Regular\ 14
+		:set guifont=Source\ Code\ Pro\ for\ Powerline\ Regular\ 14
   endif
 endif
 
