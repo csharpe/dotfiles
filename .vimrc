@@ -27,14 +27,16 @@ endif
 :filetype on
 :syntax on
 
-" ************************************************************************ 
-" Enable Powerline - Installed via PIP
-"
-:python3 from powerline.vim import setup as powerline_setup
-:python3 powerline_setup()
-:python3 del powerline_setup
-:set laststatus=2
-
+" ************************************************************************
+" Check if VIM has python3 support - if so enable Powerline
+if has('python3')
+	" Enable Powerline - Installed via PIP
+	"
+	:python3 from powerline.vim import setup as powerline_setup
+	:python3 powerline_setup()
+	:python3 del powerline_setup
+	:set laststatus=2
+endif
 " ************************************************************************ 
 " plug Ins Settings
 "
