@@ -7,7 +7,7 @@ if has("gui_running")
 		:set guifont=SourceCodeProForPowerline-Regular:h16
 	elseif has("gui_gtk2") || has("gui_gtk3")
     " Linux GUI
-		:set guifont=Source\ Code\ Pro\ for\ Powerline\ Regular\ 14
+		:set guifont=Source\ Code\ Pro\ 14
   endif
 endif
 
