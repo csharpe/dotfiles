@@ -14,7 +14,7 @@ PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 #PS1='[\u@\h \W]\$ '
 
-declare -x PATH=$PATH:/var/lib/snapd/snap/bin:~/bin:$HOME/Applications
+declare -x PATH=${HOME}/bin:${home}/Applications:/var/lib/snapd/snap/bin:$PATH
 
 # Enable QGtkStyle
 # declare -x QT_QPA_PLATFORMTHEME=gtk2
