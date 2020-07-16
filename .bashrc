@@ -8,13 +8,11 @@
 # ########################################################################
 # Set environment variables
 # ########################################################################
-declare -x DOTFILES_REPO="~/dotfiles.git"
+if [ -e ~/.shenv ]; then source ~/.shenv; fi
 
 PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 #PS1='[\u@\h \W]\$ '
-
-declare -x PATH=${HOME}/bin:${home}/Applications:/var/lib/snapd/snap/bin:$PATH
 
 # Enable QGtkStyle
 # declare -x QT_QPA_PLATFORMTHEME=gtk2
@@ -113,23 +111,7 @@ alias dotfiles="/usr/bin/git --git-dir $DOTFILES_REPO --work-tree ~/ "
 #fi
 
 # ########################################################################
-# Google Cloud components
-# ########################################################################
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "${HOME}/bin/google-cloud-sdk/path.bash.inc" ]; then . "${HOME}/bin/google-cloud-sdk/path.bash.inc" ; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "${HOME}/bin/google-cloud-sdk/completion.bash.inc" ]; then . "${HOME}/bin/google-cloud-sdk/completion.bash.inc"; fi
-
-# ########################################################################
 # iTERM (OSX Terminal) integration
 # ########################################################################
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-
-# ########################################################################
-# Enivronmental definitions.
-# ########################################################################
-
-declare -x EDITOR="/usr/bin/vim"
 
