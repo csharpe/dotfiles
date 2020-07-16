@@ -256,12 +256,12 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             -- wibox.widget.systray(),
-            mytextclock,
 						memWidget,
 						pulseWidget,
 						brightnessWidget,
 						mybatterywidget,
-            s.mylayoutbox,
+            mytextclock,
+						s.mylayoutbox,
         },
     }
 end)
@@ -339,6 +339,25 @@ globalkeys = gears.table.join(
 		-- Custom key bindings
 		awful.key({ modkey,						}, "b", function () awful.spawn(browser) end,
 							{description = "Open a web browser", group="launcher"}),
+		awful.key({ modkey,	"Shift"		}, "e", 
+			function () 
+				awful.popup { widget = {
+												markup = 'This <i>is</i> a <b>textbox</b>!!!',
+												align  = 'center',
+												valign = 'center',
+												widget = wibox.widget.textbox,
+												visible= true
+											},
+											border_color				= '#00ff00',
+											border_width				= 5,
+											placement						= awful.placement.centered,
+											shape								= gears.shape.rounded_rect,
+											visible							= true,
+											hide_on_right_click = true,
+										}
+			end, 
+			{description = "Display the Lua Path environment variable", group="Global"}),
+
 		-- Standard key bindings
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
@@ -380,8 +399,13 @@ globalkeys = gears.table.join(
     -- awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
     --          {description = "run prompt", group = "launcher"}),
 
-     awful.key({ modkey },            "r",     function () awful.util.spawn("dmenu_run -fn \"Droid Sans Mono-14\"") end,
-              {description = "run dmenu", group = "launcher"}),
+   awful.key({ modkey },            "r", function () awful.spawn.with_shell("source $HOME/.shenv; dmenu_run -fn \"Droid Sans Mono-14\"") end,
+             {description = "run dmenu", group = "launcher"}),
+
+   awful.key({ modkey, "Shift" },   "p", function () 
+				awful.spawn.with_shell("$HOME/Applications/PrusaSlicer-2.2.0+linux-x64-202003211856.AppImage") 
+			end,
+			{description = "Run Prusaslicer", group = "launcher"}),
 
    awful.key({ modkey }, "x",
               function ()
