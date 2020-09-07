@@ -422,9 +422,9 @@ globalkeys = gears.table.join(
               {description = "show the menubar", group = "launcher"}),
 
 		-- Audio Control
-		awful.key( {}, "XF86AudioRaiseVolume", function() awful.util.spawn("pulseaudio-ctl up +5") end, {description = "Volume Up", group = "custom"}),
-		awful.key( {}, "XF86AudioLowerVolume", function() awful.util.spawn("pulseaudio-ctl down -5") end, {description = "Volume Down", group = "custom"}),
-		awful.key( {}, "XF86AudioMute", function() awful.util.spawn("pulseaudio-ctl mute") end, {description = "Volume Mute", group = "custom"}),
+		awful.key( {}, "XF86AudioRaiseVolume", function() awful.spawn("pulseaudio-ctl up +5") end, {description = "Volume Up", group = "custom"}),
+		awful.key( {}, "XF86AudioLowerVolume", function() awful.spawn("pulseaudio-ctl down -5") end, {description = "Volume Down", group = "custom"}),
+		awful.key( {}, "XF86AudioMute", function() awful.spawn("pulseaudio-ctl mute") end, {description = "Volume Mute", group = "custom"}),
 
 		-- Screen Brightness Commands
 		awful.key({ }, "XF86MonBrightnessUp", function () awful.spawn("xbacklight -inc 5") end, {description = "increase brightness", group = "custom"}),
@@ -665,7 +665,7 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 -- Autostart programs
-awful.spawn.with_shell("picom")
-awful.spawn.with_shell("nitrogen --restore")
-
+awful.spawn.easy_async_with_shell("picom")
+awful.spawn.easy_async_with_shell("nitrogen --restore")
+awful.spawn.easy_async_with_shell("locker");
 -- }}}
