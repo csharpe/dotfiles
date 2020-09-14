@@ -15,8 +15,8 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Custom widgets
-local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
-local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
+-- local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
+-- local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
 local lain = require("lain")
 
 -- Enable hotkeys help widget for VIM and other apps
@@ -230,18 +230,18 @@ awful.screen.connect_for_each_screen(function(s)
 				widget:set_markup(lain.util.markup("#7493d2", vlevel))
 			end }
 		
-		local brightnessWidget = brightness_widget({
-			get_brightness_cmd = 'xbacklight -get',
-			inc_brightness_cmd = 'xbacklight -inc 5',
-			dec_brightness_cmd = 'xbacklight -dec 5',
-			font = "Play 13"
-		})  
-
-		local mybatterywidget = battery_widget({
-			font = "Play 13",
-			display_notification = true,
-			show_current_level = true 
-		})
+--		local brightnessWidget = brightness_widget({
+--			get_brightness_cmd = 'xbacklight -get',
+--			inc_brightness_cmd = 'xbacklight -inc 5',
+--			dec_brightness_cmd = 'xbacklight -dec 5',
+--			font = "Play 13"
+--		})  
+--
+--		local mybatterywidget = battery_widget({
+--			font = "Play 13",
+--			display_notification = true,
+--			show_current_level = true 
+--		})
 
 		-- Add widgets to the wibox
     s.mywibox:setup {
@@ -258,8 +258,8 @@ awful.screen.connect_for_each_screen(function(s)
             -- wibox.widget.systray(),
 						memWidget,
 						pulseWidget,
-						brightnessWidget,
-						mybatterywidget,
+--						brightnessWidget,
+--						mybatterywidget,
             mytextclock,
 						s.mylayoutbox,
         },
@@ -337,7 +337,7 @@ globalkeys = gears.table.join(
     -- Standard program
 		
 		-- Custom key bindings
-		awful.key({ modkey,						}, "b", function () awful.spawn(browser) end,
+		awful.key({ modkey,						}, "b", function () awful.spawn.easy_async(browser) end,
 							{description = "Open a web browser", group="launcher"}),
 		awful.key({ modkey,	"Shift"		}, "e", 
 			function () 
@@ -422,9 +422,9 @@ globalkeys = gears.table.join(
               {description = "show the menubar", group = "launcher"}),
 
 		-- Audio Control
-		awful.key( {}, "XF86AudioRaiseVolume", function() awful.spawn("pulseaudio-ctl up +5") end, {description = "Volume Up", group = "custom"}),
-		awful.key( {}, "XF86AudioLowerVolume", function() awful.spawn("pulseaudio-ctl down -5") end, {description = "Volume Down", group = "custom"}),
-		awful.key( {}, "XF86AudioMute", function() awful.spawn("pulseaudio-ctl mute") end, {description = "Volume Mute", group = "custom"}),
+		awful.key( {}, "XF86AudioRaiseVolume", function() awful.spawn.with_shell("pulseaudio-ctl up +5") end, {description = "Volume Up", group = "custom"}),
+		awful.key( {}, "XF86AudioLowerVolume", function() awful.spawn.with_shell("pulseaudio-ctl down -5") end, {description = "Volume Down", group = "custom"}),
+		awful.key( {}, "XF86AudioMute", function() awful.spawn.with_shell("pulseaudio-ctl mute") end, {description = "Volume Mute", group = "custom"}),
 
 		-- Screen Brightness Commands
 		awful.key({ }, "XF86MonBrightnessUp", function () awful.spawn("xbacklight -inc 5") end, {description = "increase brightness", group = "custom"}),
@@ -667,5 +667,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Autostart programs
 awful.spawn.easy_async_with_shell("picom")
 awful.spawn.easy_async_with_shell("nitrogen --restore")
-awful.spawn.easy_async_with_shell("locker");
--- }}}
+awful.spawn.easy_async_with_shell("locker")
+
