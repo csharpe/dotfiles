@@ -62,4 +62,4 @@ Plug 'https://github.com/chrisbra/Colorizer'
 
 call plug#end()
 
-:au BufWrite,BufEnter,FileType *.yml,*.css,yaml,css :ColorToggle
+:au BufWrite,BufEnter,FileType *.yml,*.css,yaml,yml,css :ColorToggle
