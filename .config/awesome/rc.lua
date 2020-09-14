@@ -422,15 +422,9 @@ globalkeys = gears.table.join(
               {description = "show the menubar", group = "launcher"}),
 
 		-- Audio Control
-<<<<<<< HEAD
 		awful.key( {}, "XF86AudioRaiseVolume", function() awful.spawn.with_shell("pulseaudio-ctl up +5") end, {description = "Volume Up", group = "custom"}),
 		awful.key( {}, "XF86AudioLowerVolume", function() awful.spawn.with_shell("pulseaudio-ctl down -5") end, {description = "Volume Down", group = "custom"}),
 		awful.key( {}, "XF86AudioMute", function() awful.spawn.with_shell("pulseaudio-ctl mute") end, {description = "Volume Mute", group = "custom"}),
-=======
-		awful.key( {}, "XF86AudioRaiseVolume", function() awful.spawn("pulseaudio-ctl up +5") end, {description = "Volume Up", group = "custom"}),
-		awful.key( {}, "XF86AudioLowerVolume", function() awful.spawn("pulseaudio-ctl down -5") end, {description = "Volume Down", group = "custom"}),
-		awful.key( {}, "XF86AudioMute", function() awful.spawn("pulseaudio-ctl mute") end, {description = "Volume Mute", group = "custom"}),
->>>>>>> 60aaca844c7d33cabcdb52450bddd4f71ad75e0b
 
 		-- Screen Brightness Commands
 		awful.key({ }, "XF86MonBrightnessUp", function () awful.spawn("xbacklight -inc 5") end, {description = "increase brightness", group = "custom"}),
