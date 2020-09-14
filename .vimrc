@@ -61,3 +61,5 @@ Plug 'https://github.com/chiel92/vim-autoformat'
 Plug 'https://github.com/chrisbra/Colorizer'
 
 call plug#end()
+
+:au BufEnter,FileType *.yml,*.css :ColorToggle
