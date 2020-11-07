@@ -29,7 +29,8 @@ alias dotfiles="/usr/bin/git --git-dir $DOTFILES_REPO --work-tree ~/ "
 
 # ########################################################################
 #	Completions
-#	The following lines were added by compinstallw# ########################################################################
+#	The following lines were added by compinstall
+#	########################################################################
 # zstyle ':completion:*' list-colors ''
 # zstyle :compinstall filename '/home/craig/.zshrc'
 # autoload -Uz compinit
@@ -40,7 +41,7 @@ alias dotfiles="/usr/bin/git --git-dir $DOTFILES_REPO --work-tree ~/ "
 # https://github.com/ohmyzsh/ohmyzsh
 # ########################################################################
 declare -x ZSH="${HOME}/.oh-my-zsh"
-declare -x ZSH_THEME="spaceship"
+declare -x ZSH_THEME="pygmalion"
 
 plugins=(
   git 
@@ -54,6 +55,7 @@ ZSH_CACHE_DIR=${HOME}/.cache/oh-my-zsh
 if [[ ! -d ${ZSH_CACHE_DIR} ]]; then
   mkdir ${ZSH_CACHE_DIR}
 fi
+
 source ${ZSH}/oh-my-zsh.sh
 
 # ########################################################################
