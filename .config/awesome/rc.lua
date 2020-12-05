@@ -15,8 +15,8 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Custom widgets
-local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
-local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
+-- local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
+-- local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
 local lain = require("lain")
 
 -- Enable hotkeys help widget for VIM and other apps
@@ -230,19 +230,6 @@ awful.screen.connect_for_each_screen(function(s)
 				widget:set_markup(lain.util.markup("#7493d2", vlevel))
 			end }
 		
-		local brightnessWidget = brightness_widget({
-			get_brightness_cmd = 'xbacklight -get',
-			inc_brightness_cmd = 'xbacklight -inc 5',
-			dec_brightness_cmd = 'xbacklight -dec 5',
-			font = "Play 13"
-		})  
-
-		local mybatterywidget = battery_widget({
-			font = "Play 13",
-			display_notification = true,
-			show_current_level = true 
-		})
-
 		-- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
@@ -665,7 +652,7 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 -- Autostart programs
-awful.spawn.easy_async_with_shell("picom")
+awful.spawn.easy_async_with_shell("picom -m 1.0 -i 0.90 -b")
 awful.spawn.easy_async_with_shell("nitrogen --restore")
 awful.spawn.easy_async_with_shell("locker");
--- }}}
+awful.spawn.easy_async_with_shell("blueman-applet");
