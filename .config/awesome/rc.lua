@@ -50,14 +50,23 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.get().font = "Nimbus Roman 14"
-beautiful.get().hotkeys_font = "Monospace Bold 14"
-beautiful.get().hotkeys_description_font = "Monospace Bold 14"
+-- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+-- beautiful.get().font = "Nimbus Roman 14"
+-- beautiful.get().hotkeys_font = "Monospace Bold 14"
+-- beautiful.get().hotkeys_description_font = "Monospace Bold 14"
+
+beautiful.init("/usr/share/awesome/themes/cesious/theme.lua")
+beautiful.icon_theme        = "Papirus-Dark"
+beautiful.bg_normal         = "#222D32"
+beautiful.bg_focus          = "#2C3940"
+beautiful.titlebar_close_button_normal = "/usr/share/awesome/themes/cesious/titlebar/close_normal_adapta.png"
+beautiful.titlebar_close_button_focus = "/usr/share/awesome/themes/cesious/titlebar/close_focus_adapta.png"
+beautiful.font              = "Noto Sans Regular 12"
+beautiful.notification_font = "Noto Sans Bold 14"
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
-editor = os.getenv("EDITOR") or "nano"
+editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- This is used for custom key bindgings for launchers
@@ -103,7 +112,8 @@ myawesomemenu = {
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
                                     { "open terminal", terminal }
-                                  }
+                                  },
+													theme = { width = 175 }
                         })
 
 -- Created as part of the tutorial, demonstraits how to use widgets - cjs - 2020-04-26
@@ -652,7 +662,5 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 -- Autostart programs
-awful.spawn.easy_async_with_shell("picom -m 1.0 -i 0.90 -b")
-awful.spawn.easy_async_with_shell("nitrogen --restore")
-awful.spawn.easy_async_with_shell("locker");
-awful.spawn.easy_async_with_shell("blueman-applet");
+-- awful.spawn.easy_async_with_shell("locker");
+awful.spawn.with_shell("~/.config/awesome/autorun.sh")
