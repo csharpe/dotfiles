@@ -26,6 +26,7 @@ autoload promptinit && promptinit
 # ########################################################################
 alias ll="ls -lah"
 alias dotfiles="/usr/bin/git --git-dir $DOTFILES_REPO --work-tree ~/ "
+alias findr='f() {  find $@ 2>&1 | grep -v "Permission denied" }; f'
 
 # ########################################################################
 #	Completions
