@@ -396,8 +396,11 @@ globalkeys = gears.table.join(
     -- awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
     --          {description = "run prompt", group = "launcher"}),
 
-   awful.key({ modkey },            "r", function () awful.spawn.with_shell("source $HOME/.shenv; dmenu_run -fn \"Droid Sans Mono-14\"") end,
+   awful.key({ modkey },            "r", function () awful.spawn.with_shell("rofi -show combi") end,
              {description = "run dmenu", group = "launcher"}),
+
+   -- awful.key({ modkey },            "r", function () awful.spawn.with_shell("source $HOME/.shenv; dmenu_run -fn \"Droid Sans Mono-14\"") end,
+   --           {description = "run dmenu", group = "launcher"}),
 
    awful.key({ modkey, "Shift" },   "p", function () 
 				awful.spawn.with_shell("$HOME/Applications/PrusaSlicer-2.2.0+linux-x64-202003211856.AppImage") 
