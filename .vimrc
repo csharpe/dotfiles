@@ -54,10 +54,9 @@ endif
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
-
 Plug 'https://github.com/hashivim/vim-terraform.git'
 Plug 'https://github.com/chiel92/vim-autoformat'
-" Plug 'https://github.com/powerline/powerline'
+Plug 'https://github.com/powerline/powerline'
 Plug 'https://github.com/chrisbra/Colorizer'
 
 call plug#end()
