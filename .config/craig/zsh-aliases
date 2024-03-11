@@ -1,0 +1,8 @@
+# Custom Command aliases
+alias cat="bat"
+
+if [ -f '/Users/craigsharpe/bin/brew' ]; then
+	alias brew="/Users/craigsharpe/bin/brew";
+fi
+
+

@@ -4,10 +4,10 @@ if has("gui_running")
 	" Gvim
 	let s:uname = system("uname")
   if s:uname == "Darwin\n"
-		:set guifont=SourceCodeProForPowerline-Regular:h16
+		:set guifont=SourceCodeProForPowerline-Regular:h18
 	elseif has("gui_gtk2") || has("gui_gtk3")
     " Linux GUI
-		:set guifont=Source\ Code\ Pro\ 14
+		set guifont=Source\ Code\ Pro\ 30
   endif
 endif
 
@@ -15,16 +15,16 @@ endif
 " Editor settings
 "
 " Set the tabstops
-:set tabstop=2
-:set shiftwidth=2
-:set softtabstop=2
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 
 " Show line numbers
-:set number
-:set relativenumber
+set number
+set relativenumber
 " :set norelativenumber
 
-:filetype on
+filetype on
 :syntax on
 
 " ************************************************************************
@@ -32,11 +32,16 @@ endif
 if has('python3')
 	" Enable Powerline - Installed via PIP
 	"
-	:python3 from powerline.vim import setup as powerline_setup
-	:python3 powerline_setup()
-	:python3 del powerline_setup
-	:set laststatus=2
+	python3 from powerline.vim import setup as powerline_setup
+	python3 powerline_setup()
+	python3 del powerline_setup
+	set laststatus=2
 endif
+
+" ************************************************************************
+" Enable support for FZF in VIM
+set rtp+=/usr/local/opt/fzf
+
 " ************************************************************************ 
 " plug Ins Settings
 "

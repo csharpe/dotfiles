@@ -22,17 +22,22 @@ declare -x DOTFILES_REPO="~/dotfiles.git"
 autoload -U edit-command-line
 autoload promptinit && promptinit
 
-# zle -N edit-command-line
+zle -N edit-command-line
 # bindkey '^[' edit-command-line
 # bindkey '^xe' edit-command-line
 # bindkey '^x^e' edit-command-line
-
+bindkey -M vicmd v edit-command-line
 
 # ########################################################################
 # Aliases	
 # ########################################################################
 alias ll="ls -lah"
 alias dotfiles="/usr/bin/git --git-dir $DOTFILES_REPO --work-tree ~/ "
+
+# Add My custom user aliases
+if [ -f '/Users/craigsharpe/.config/craig/zsh-aliases' ]; then
+	source '/Users/craigsharpe/.config/craig/zsh-aliases';
+fi
 
 # ########################################################################
 #	Completions
@@ -54,7 +59,6 @@ declare -x ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
   git 
-	colored-man-pages 
 	colorize
 	zsh-syntax-highlighting 
 	vi-mode
@@ -72,12 +76,15 @@ source ${ZSH}/oh-my-zsh.sh
 
 bindkey -v;
 
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/craigsharpe/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/craigsharpe/bin/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/craigsharpe/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/craigsharpe/bin/google-cloud-sdk/completion.zsh.inc'; fi
 
+# Allow MAN pages to be colored by configuring less termcap
+if [ -f '/Users/craigsharpe/.LESS_TERMCAP' ]; then source '/Users/craigsharpe/.LESS_TERMCAP'; fi
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
